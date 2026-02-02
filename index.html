@@ -2,7 +2,7 @@
 <html lang="ar">
 <head>
   <meta charset="UTF-8">
-  <title>قصة حب على مزاج الضحك</title>
+  <title>قصة حب مضحكة</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -10,38 +10,30 @@
 
 <section id="intro" class="screen active">
   <h1 id="introText"></h1>
-  <p class="sub">تحذير مهم: ممكن تقع في الحب وانت بتضحك 😌😂</p>
-  <button onclick="start()">ابدأ اللعبة ❤️</button>
+  <p>تحذير: ضحك + حب ❤️😂</p>
+  <button id="startBtn">ابدأ اللعبة</button>
 </section>
 
 <section id="q1" class="screen">
-  <h2>سؤال خطير 😏</h2>
-  <p>لو شوفتها زعلانة تعمل ايه؟</p>
-  <button onclick="answer(10)">أحضنها وأقولها حقك عليا حتى لو مش غلطان 😂❤️</button>
-  <button onclick="answer(5)">أسيبها تهدى وبعدين أعمل نفسي عبيط 😅</button>
-</section>
-
-<section id="q2" class="screen">
-  <h2>سؤال أصعب 🔥</h2>
-  <p>لو قالتلك أنا جعانة؟</p>
-  <button onclick="answer(10)">أطلب أكل + شوكولاتة + حلويات + حضن 😌🍫</button>
-  <button onclick="answer(3)">أقولها اشربي ميه 😭</button>
+  <h2>لو زعلت منك؟</h2>
+  <button onclick="answer(10)">أحضنها حتى لو أنا مش غلطان 😂❤️</button>
+  <button onclick="answer(5)">أعمل نفسي مش واخد بالي 😅</button>
 </section>
 
 <section id="memory" class="screen">
-  <h2>الحقيقة بقى 😌</h2>
-  <p class="type">في ناس وجودها في حياتك بيخليك تضحك من قلبك قبل ما تحب</p>
-  <button onclick="toConfession()">اعترف بقى 😏</button>
+  <h2>الحقيقة</h2>
+  <p class="type">في ناس بتضحكك قبل ما تحبك</p>
+  <button onclick="toConfession()">اعترف 😏</button>
 </section>
 
 <section id="confession" class="screen">
   <h2 id="confessText"></h2>
-  <button onclick="toFinal()">القرار الأخير 😂❤️</button>
+  <button onclick="toFinal()">كفاية كده 😂</button>
 </section>
 
 <section id="final" class="screen">
-  <h2>نكمّل القصة دي سوا؟</h2>
-  <button onclick="endYes()">أيوه طبعًا ❤️😂</button>
+  <h2>نكمّل سوا؟</h2>
+  <button onclick="endYes()">أيوه ❤️😂</button>
   <button onclick="endNo()">استنى شوية 😅</button>
 </section>
 
