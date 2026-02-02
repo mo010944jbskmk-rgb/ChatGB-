@@ -1,79 +1,80 @@
 const screens = document.querySelectorAll(".screen");
 const music = document.getElementById("music");
 const click = document.getElementById("click");
+const startBtn = document.getElementById("startBtn");
 
 let score = 0;
 
-// intro typing
-const introMsg = "في قصص حب بتبدأ صدفة… وفي قصص بتبدأ بضحكة 😂❤️";
+// كتابة المقدمة
+const introMsg = "في قصص حب بتبدأ بضحكة 😂❤️";
 let i = 0;
+
 function typeIntro(){
   if(i < introMsg.length){
     document.getElementById("introText").innerHTML += introMsg[i];
     i++;
-    setTimeout(typeIntro,70);
+    setTimeout(typeIntro, 70);
   }
 }
 typeIntro();
 
+// تغيير الشاشة
 function show(id){
-  screens.forEach(s=>s.classList.remove("active"));
+  screens.forEach(s => s.classList.remove("active"));
   document.getElementById(id).classList.add("active");
 }
 
-function sound(){
-  click.currentTime = 0;
-  click.play();
-}
-
-function start(){
-  sound();
-  music.play();
-  show("q1");
-}
-
-function answer(val){
-  sound();
-  score += val;
-
-  if(score >= 15){
-    show("q2");
-  }else{
-    show("memory");
+// صوت
+function playSound(){
+  if(click){
+    click.currentTime = 0;
+    click.play();
   }
 }
 
+// زر البداية (الحل للمشكلة)
+startBtn.addEventListener("click", () => {
+  playSound();
+  if(music){
+    music.play().catch(()=>{});
+  }
+  show("q1");
+});
+
+function answer(val){
+  playSound();
+  score += val;
+  show("memory");
+}
+
 function toConfession(){
-  sound();
+  playSound();
   show("confession");
   typeConfession();
 }
 
-const confession = "يمكن بحبك عشان ضحكتك قبل جمالك… ويمكن عشان الاتنين مع بعض 😂❤️";
+const confession = "بحبك عشان بتضحكيني قبل أي حاجة 😂❤️";
 let c = 0;
+
 function typeConfession(){
   if(c < confession.length){
     document.getElementById("confessText").innerHTML += confession[c];
     c++;
-    setTimeout(typeConfession,60);
+    setTimeout(typeConfession, 60);
   }
 }
 
 function toFinal(){
-  sound();
+  playSound();
   show("final");
 }
 
 function endYes(){
-  sound();
-  if(score >= 20){
-    alert("ده مش حب… ده مشروع جواز رسمي 😂❤️🔥");
-  }else{
-    alert("حب لطيف وضحك حلو… والباقي ييجي لوحده 😌");
-  }
+  playSound();
+  alert("مبروك 😂❤️ قصة حب رسمية");
 }
 
 function endNo(){
-  sound();
-  alert("ماشي… بس خلي بالك ممكن أرجع أضحكك تاني 😂🖤");
+  playSound();
+  alert("ماشي… بس الضحك لسه مخلصش 😅");
 }
